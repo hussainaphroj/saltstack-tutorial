@@ -22,4 +22,4 @@ Result cache | Sends job results to long-term storage.
 Remote execution | Runs a wide variety of tasks to install software, distribute files, and other things you need to do to manage systems.
 Configuration | Configures targeted systems to match a desired state.
 
-![Plugins](../images/plugins.png)
+![Plugins](images/plugins.png)
