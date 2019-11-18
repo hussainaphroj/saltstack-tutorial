@@ -1,5 +1,9 @@
 # saltstack-tutorial
-# what is saltstack?
+# Table of contents
+1. [Introduction](#introduction)
+2. [Components](#Components)
+
+## what is saltstack? <a name="introduction"></a>
 It is configuration *management*, *orchestration* and *remote execution* tool. Thomas Hatch is the founder of saltstack. It works on different Operating system such as *Window*, *Linux* and *Mac*.
 
 It works in publication/subscribtion(pub/sub) model using ZeroMQ data bus.The master and Minions communicates with each using encrypted channel using AES key.
@@ -25,7 +29,7 @@ Configuration | Configures targeted systems to match a desired state.
 ![Plugins](/images/plugins.PNG)
 PC: saltstack
 
-# Different components of saltstack
+# Different components of saltstack <a name="Components"></a>
 * Salt Master:  It is central maanagement system that used to send command and cofiguration to managed systems that is *Minions*
 
 * Salat Minions: It is managed system that execute the command and confiuration received from *Master*
@@ -47,3 +51,6 @@ PC: saltstack
 * Salt SSH: Perform remote execution without installing salt.
 
 * Salt Cloud: Provision the infrastructure on different cloud provider
+
+
+# Installation
