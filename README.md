@@ -11,7 +11,7 @@ It works in publication/subscribtion(pub/sub) model using ZeroMQ data bus.The ma
 
 Salt contains over 20 pluggable subsystems. The following table contains a list of some of the more common subsystems in Salt:
 
-Subsystem
+Subsystem |  Desciption
 -------------------------
 Authentication	| Authorizes a user before running a job.
 File server	| Distributes files.
@@ -23,3 +23,27 @@ Remote execution | Runs a wide variety of tasks to install software, distribute 
 Configuration | Configures targeted systems to match a desired state.
 
 ![Plugins](/images/plugins.PNG)
+PC: saltstack
+
+# Different components of saltstack
+* Salt Master:  It is central maanagement system that used to send command and cofiguration to managed systems that is *Minions*
+
+* Salat Minions: It is managed system that execute the command and confiuration received from *Master*
+
+* Execution Modules: It is remote execution system and runs the adhoc command that when called from *Master*
+
+* Formulas (States): It is configuration management system. it containde code for configuration which written in YAML(Infras structue as code). State is single configured task such as installing ntp and formulas are the collectons of states.
+
+* Grains: It contains the system varaible such OS,IP which are usefull to run the states based on operating system.
+
+*  Pillar: It conaints the user defined varaible and can be used to store password, path etc.
+
+* Runner: Modules that execute on the Salt master to perform supporting tasks. Salt runners report job status, connection status, read data from external APIs, query connected Salt minions
+
+* Returners: Send data returned by Salt minions to another system, such as a database. Salt returners can run on the Salt minion or on the Salt master.
+
+* Beacons & Reactors: Beacon monitors events on th system and Reactors react on that event.
+
+* Salt SSH: Perform remote execution without installing salt.
+
+* Salt Cloud: Provision the infrastructure on different cloud provider
