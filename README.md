@@ -152,5 +152,4 @@ salt '*' pkg.install httpd
     * cmd: to execute any command
     ``` salt 'minion*' cmd.run "cat /etc/passwd" ```
 
-    Please refer the below link for more modules details
-    (https://docs.saltstack.com/en/latest/salt-modindex.html)
+    Please refer https://docs.saltstack.com/en/latest/salt-modindex.html for more details
