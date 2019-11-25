@@ -2,6 +2,8 @@
 # Table of contents
 1. [Introduction](#introduction)
 2. [Components](#Components)
+3. [Installation](#install)
+4. [Configuration](#config)
 
 ## what is saltstack? <a name="introduction"></a>
 It is configuration *management*, *orchestration* and *remote execution* tool. Thomas Hatch is the founder of saltstack. It works on different Operating system such as *Window*, *Linux* and *Mac*.
@@ -53,4 +55,37 @@ PC: saltstack
 * Salt Cloud: Provision the infrastructure on different cloud provider
 
 
-# Installation
+# Installation <a name="install"></a>
+We can perform installation using package manager such as yum, apt etc and using bootstrap. Bootstrap is my favourite to setup the master and Minions
+### Master Setup
+Minion by default looks master name as *salt* ,we will set hostname for master vm as *salt*
+* set hostname
+hostnamectl set-hostname salt
+vi /etc/hosts
+127.0.0.1 localhost salt
+
+* Download bootstrap.sh 
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+* Check all the available option
+ sh bootstrap-salt.sh --help
+ * Install Master and Minion on the master machine ( I am using CentOS7). Run the installer
+ sh bootstrap-salt.sh -P -M
+
+### Minion setup
+* set the hostname 
+hostnamectl set-hostname minion1
+vi /etc/hosts
+127.0.0.1 localhost minion1
+<IP_of_salt> salt
+
+* Download bootstrap.sh 
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+
+* Run the installer
+ sh bootstrap-salt.sh -P
+# Configuration <a name="config"></a>
+### key
+As we know that communication between master and minion done through AES encrypetion.
+Minon search for master(salt by default), initiate the connection request, send handshake and wait for master to accept the connection 
+
+![key](/images/key.PNG)
