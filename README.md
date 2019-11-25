@@ -137,7 +137,7 @@ salt '*' pkg.install httpd
   
   * test: for testing connection and outputter 
   ``` salt '*' test.ping ```
-  ``` salt '*' test.outputter "Testing outputter" `` 
+  ``` salt '*' test.outputter \"Testing outputter\" ```
  
    * pkg: This is managing for packag management.
    ``` salt '*' pkg.install httpd ```
@@ -153,7 +153,4 @@ salt '*' pkg.install httpd
     ``` salt 'minion*' cmd.run "cat /etc/passwd" ```
 
     Please refer the below link for more modules details
-    ![module index](https://docs.saltstack.com/en/latest/salt-modindex.html)
-
-
-
+    [module (https://docs.saltstack.com/en/latest/salt-modindex.html)] [module]
