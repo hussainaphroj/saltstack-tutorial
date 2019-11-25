@@ -110,10 +110,50 @@ salt '*' pkg.install httpd
 * Breakdown:
    * salt: salt command that work on master
    * '*': Target host, that is all host we are targetting now
-   * pkg: it module name
-   * install: it is the funcation of pkg module.
+   * pkg: it is module name
+   * install: it is the function of pkg module.
    * httpd: is parameter.
-   That we want to install httpd on all the minion.
+   That we want to install httpd on all the minions.
+
+* There are different way to target minions:
+  * salt '*' test.ping 
+  * salt 'minion*' test.ping
+  * salt *minion[1-2]* test.ping 
+  * Grain based targetting
+     * salt -G 'os:CentOS' test.ping
+     * salt -G 'os:Ubuntu' test.ping
+     * salt -G 'roles:webserver' test.ping
+     #### Note: to add the roles, we need create grains.conf in /etc/salt/minion.d/ on each main as
+     ```
+     grains:
+       roles:
+         - webserver
+
+### Common modules:
+  * sys: is for help and documentation. The below command list all the functions available for pkg module and next one is for all parameters for pkg.install
+  ``` salt 'minion1' sys.list_functions pkg.install```
+
+  ``` salt 'minion1' sys.argspec pkg.install ```
+  
+  * test: for testing connection and outputter 
+  ``` salt '*' test.ping ```
+  ``` salt '*' test.outputter "Testing outputter" `` 
+ 
+   * pkg: This is managing for packag management.
+   ``` salt '*' pkg.install httpd ```
+   ``` salt '*' pkg.remove httpd ```
+   ``` salt '*' pkg.upgrade httpd ```
+
+   * User & Group: for user and group management
+     ``` salt '*' group.add tom ```
+     ``` salt '*' group.adduser tom harry```
+     ``` salt '*' user.add hussain home=/home/hussain ```
+
+    * cmd: to execute any command
+    ``` salt 'minion*' cmd.run "cat /etc/passwd" ```
+
+    Please refer the below link for more modules details
+    ![module index](https://docs.saltstack.com/en/latest/salt-modindex.html)
 
 
 
