@@ -4,6 +4,7 @@
 2. [Components](#Components)
 3. [Installation](#install)
 4. [Configuration](#config)
+5. [Salt Execution](#exec)
 
 ## what is saltstack? <a name="introduction"></a>
 It is configuration *management*, *orchestration* and *remote execution* tool. Thomas Hatch is the founder of saltstack. It works on different Operating system such as *Window*, *Linux* and *Mac*.
@@ -89,3 +90,30 @@ As we know that communication between master and minion done through AES encrype
 Minon search for master(salt by default), initiate the connection request, send handshake and wait for master to accept the connection 
 
 ![key](/images/key.PNG)
+
+### Master
+* edit /etc/salt/master for file root: 
+Make sure that the master uses /srv/salt as file root for formulas, Edit /etc/salt/master and uncomment 
+```
+file_roots:
+  base:
+    - /srv/salt
+```
+* restat the master service:
+'systemctl restart salt-mast'
+
+# Salt Execution <a name="exec"></a>
+### Remote execution
+```
+salt '*' pkg.install httpd
+```
+* Breakdown:
+   * salt: salt command that work on master
+   * '*': Target host, that is all host we are targetting now
+   * pkg: it module name
+   * install: it is the funcation of pkg module.
+   * httpd: is parameter.
+   That we want to install httpd on all the minion.
+
+
+
